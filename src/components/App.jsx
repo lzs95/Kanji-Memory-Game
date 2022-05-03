@@ -79,7 +79,6 @@ const App = () => {
     
       {showSubmitName && <SubmitName turns={turns} setShowSubmitName={setShowSubmitName} />}
       {showLeaderBoard && <LeaderBoard />}
-
       <CardList cards={cards} cardClickHandler={cardClickHandler} />
 
       {cards.length > 0 && 

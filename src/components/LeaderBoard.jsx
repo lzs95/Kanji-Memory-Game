@@ -8,9 +8,8 @@ const LeaderBoard = () => {
   const getLeaderBoard = async () => {
     const res = await axios.get("/leaderboard");
     const leadUsers = res.data;
-    leadUsers.splice(5);
-
-    const sortedUsers = leadUsers.sort((a, b) => a.score - b.score)
+    const sortedUsers = leadUsers.sort((a, b) => a.score - b.score);
+    sortedUsers.splice(5);
     setUsers(sortedUsers);
   };
 
