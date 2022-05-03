@@ -37,25 +37,24 @@ const App = () => {
   };
 
   const setChoices = (card) => {
+    if (choice1.id && choice2.id) return;
     turns % 2 === 1 ? setChoice1(card) : setChoice2(card);
   };
 
-  const checkMatch = async () => {
-    if (choice1.id && choice2.id) {
-      if (choice1.meaning === choice2.meaning) {
-        choice1.flipped = true;
-        choice2.flipped = true;
-        setCardsFlipped(cardsFlipped + 2)
+  const checkMatch = () => {
+    if (!choice1.id || !choice2.id) return;
+
+    if (choice1.meaning === choice2.meaning) {
+      [choice1.flipped, choice2.flipped] = [true, true];
+      setCardsFlipped(cardsFlipped + 2)
+      setChoice1({});
+      setChoice2({});
+    } else {
+      setTimeout(() => {
+        [choice1.flipped, choice2.flipped] = [false, false];
         setChoice1({});
         setChoice2({});
-      } else {
-        setTimeout(() => {
-          choice1.flipped = false;
-          choice2.flipped = false;
-          setChoice1({});
-          setChoice2({});
-        }, "600");
-      }
+      }, "500");
     }
   };
 
@@ -74,22 +73,20 @@ const App = () => {
   return (
     <div>
       <h1>Kanji Memory Game</h1>
-      <button className="new-game-btn" onClick={setNewGame}>
-        New Game
-      </button>
 
+      <button className="new-game-btn" onClick={setNewGame}>New Game</button>
+      <button className="board-btn" onClick={displayLeaderBoard}>Leader Board</button>
+    
       {showSubmitName && <SubmitName turns={turns} setShowSubmitName={setShowSubmitName} />}
+      {showLeaderBoard && <LeaderBoard />}
 
       <CardList cards={cards} cardClickHandler={cardClickHandler} />
 
-      {cards.length > 0 && (
+      {cards.length > 0 && 
         <div className="display-turns">
-          <h2>Turns: {turns}</h2>
+          <h2>Turns:<span className="turn-number">{turns}</span></h2>
         </div>
-      )}
-
-      <button className="board-btn" onClick={displayLeaderBoard}>Leader Board</button>
-      {showLeaderBoard && <LeaderBoard />}
+      }
     </div>
   );
 };

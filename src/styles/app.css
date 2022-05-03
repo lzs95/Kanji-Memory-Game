@@ -9,17 +9,18 @@ body {
 }
 
 .card-display {
-  margin-top: 5vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
   grid-gap: 10px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 
 .card-front {
-  color: rgb(185, 185, 185);
+  color: rgb(203, 203, 203);
   background: #f95851;
   text-align: center;
   height: 100px;
@@ -49,16 +50,34 @@ body {
 }
 
 .display-turns {
-  color: #f95851;
-  background: #ffeccc;
-  margin-top: 20px;
+  position: fixed;
+  top: 4vh;
+  left: 2vw;
+  color: #ffffff;
+  background: rgba(116, 140, 158, 0.3);
   text-align: center;
+  padding: 4px 25.5px;
+  border-radius: 8px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.25);
 }
 
-.new-game-btn {
+h2 {
+  font-weight: 400;
+  font-size: 1.35em;
+}
+
+.turn-number {
+  color: #f6bd15;
+  font-size: 1.45em;
+  margin-left: 1vw;
+}
+
+.new-game-btn, .board-btn {
   margin-top: 20px;
   color: #fff;
   background: none;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
   border: 2px solid #fff;
   padding: 6px 12px;
   border-radius: 4px;
@@ -66,51 +85,124 @@ body {
   cursor: pointer;
   font-size: 1em;
 }
-.new-game-btn:hover {
+.new-game-btn:hover, .board-btn:hover {
   color: #fff;
   background: #f95851;
 }
 
-.board-btn {
-  margin-top: 20px;
-  color: #fff;
-  background: none;
-  border: 2px solid #fff;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.5em;
+.leader-board {
+  position: fixed;
+  bottom: 4vh;
+  right: 2vw;
+  color: #ffffff;
+  background: rgba(99, 124, 142, 0.65);
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  height: auto;
+  width: fit-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.25);
 }
-.board-btn:hover {
-  color: #fff;
-  background: #f95851;
+
+.board-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 17px;
+  margin-bottom: 12px;
+}
+
+.ranking {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 3.6vw;
+  margin-right: 3.6vw;
+}
+
+.ranking:last-child {
+  margin-bottom: 17px;
+}
+
+.rank {
+  font-size: 1.1em;
+  font-weight: 400;
+  margin-right: 1.7vw;
+}
+
+.user-name {
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 125px;
+  overflow: hidden;
+  margin-right: 1vw;
+}
+
+.user-score-title {
+  text-align: left;
+  font-size: 0.7em;
+  margin-right: 0.5vw;
+}
+
+.user-score {
+  display: block;
+  color: #f6bd15;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 55px;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 .submit-name {
-  margin-right: auto;
-  margin-left: auto;
-
-  height: 300px;
-  width: 400px;
-  font-family: Raleway, sans-serif;
+  position: fixed;
+  top: 33vh;
+  right: 35.5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #f6bd15;
+  background: rgba(25, 34, 42, 0.6);
   text-align: center;
-  color: #f95851;
-  background-color: #ffeccc;
-}
-h5{
-  margin: 0%;
-}
-
-.leader-board{
-  margin-right: auto;
-  margin-left: auto;
-
   height: auto;
-  width: 400px;
-  font-family: Raleway, sans-serif;
-  text-align: center;
-  color: #f95851;
-  background-color: #ffeccc;
+  width: 28vw;
+  border-radius: 8px;
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.35);
 }
 
+h5 {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-top: 5vh;
+}
+
+.submit-input {
+  font-size: 1em;
+  height: 5.5vh;
+  margin: 5vh 38px 2.5vh 38px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0vh 38px 7vh 38px;
+  padding: 6px 12px;
+  border: 2px solid rgb(211, 211, 211);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  color: #d9a712;
+  background: rgba(100, 113, 125, 0.6);
+}
