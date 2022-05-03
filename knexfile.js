@@ -1,11 +1,10 @@
 require("dotenv").config({
   path: "./.env",
 });
-const pg = require("pg");
+
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-
 module.exports = {
   development: {
     client: "pg",
