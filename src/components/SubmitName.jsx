@@ -6,10 +6,7 @@ const SubmitName = ({ turns, setShowSubmitName }) => {
 
   const submitScore = async () => {
     if (name) {
-      const score = {
-        name: name,
-        score: turns,
-      };
+      const score = { name: name, score: turns };
       await axios.post("/leaderboard", score);
       setShowSubmitName(false);
     }
@@ -18,13 +15,15 @@ const SubmitName = ({ turns, setShowSubmitName }) => {
   return (
     <div className="submit-name">
       <h5>You won!</h5>
-      <h5>Enter your name!</h5> 
+      <h5>Enter your name &#128081;</h5> 
       <input
         type="text"
         value={name}
+        placeholder="your name"
         onChange={(e) => setName(e.target.value)}
+        className="submit-input"
       />
-      <button onClick={submitScore}>Submit</button>
+      <div onClick={submitScore} className="submit-btn">Submit</div>
     </div>
   );
 };
