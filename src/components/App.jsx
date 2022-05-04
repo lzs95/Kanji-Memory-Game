@@ -32,6 +32,7 @@ const App = () => {
   const cardClickHandler = (card) => {
     if (card.flipped) return;
     card.flipped = true;
+    setTurns(turns + 1);
     setChoices(card);
   };
 
@@ -42,7 +43,6 @@ const App = () => {
 
   const checkMatch = () => {
     if (!choice1.id || !choice2.id) return;
-    setTurns(turns + 1);
 
     if (choice1.meaning === choice2.meaning) {
       [choice1.flipped, choice2.flipped] = [true, true];
@@ -77,13 +77,13 @@ const App = () => {
       <button className="new-game-btn" onClick={setNewGame}>New Game</button>
       <button className="board-btn" onClick={displayLeaderBoard}>Leader Board</button>
     
-      {showSubmitName && <SubmitName turns={turns} setShowSubmitName={setShowSubmitName} />}
+      {showSubmitName && <SubmitName turns={Math.floor(turns/2)} setShowSubmitName={setShowSubmitName} />}
       {showLeaderBoard && <LeaderBoard />}
       <CardList cards={cards} cardClickHandler={cardClickHandler} />
 
       {cards.length > 0 && 
         <div className="display-turns">
-          <h2>Turns:<span className="turn-number">{turns}</span></h2>
+          <h2>Turns:<span className="turn-number">{Math.floor(turns/2)}</span></h2>
         </div>
       }
     </div>
