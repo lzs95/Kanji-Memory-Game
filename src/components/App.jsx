@@ -83,7 +83,7 @@ const App = () => {
 
       {cards.length > 0 && 
         <div className="display-turns">
-          <h2>Turns:<span className="turn-number">{turns}</span></h2>
+          <h2>Turns:<span className="turn-number">{Math.floor(turns/2)}</span></h2>
         </div>
       }
     </div>
