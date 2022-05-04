@@ -77,7 +77,7 @@ const App = () => {
       <button className="new-game-btn" onClick={setNewGame}>New Game</button>
       <button className="board-btn" onClick={displayLeaderBoard}>Leader Board</button>
     
-      {showSubmitName && <SubmitName turns={turns} setShowSubmitName={setShowSubmitName} />}
+      {showSubmitName && <SubmitName turns={Math.floor(turns/2)} setShowSubmitName={setShowSubmitName} />}
       {showLeaderBoard && <LeaderBoard />}
       <CardList cards={cards} cardClickHandler={cardClickHandler} />
 
