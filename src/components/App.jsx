@@ -32,7 +32,6 @@ const App = () => {
   const cardClickHandler = (card) => {
     if (card.flipped) return;
     card.flipped = true;
-    setTurns(turns + 1);
     setChoices(card);
   };
 
@@ -43,6 +42,7 @@ const App = () => {
 
   const checkMatch = () => {
     if (!choice1.id || !choice2.id) return;
+    setTurns(turns + 1);
 
     if (choice1.meaning === choice2.meaning) {
       [choice1.flipped, choice2.flipped] = [true, true];
